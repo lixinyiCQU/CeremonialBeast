@@ -1,0 +1,16 @@
+{
+  "id": "CeremonialBeast",
+  "name": "Ceremonial Beast",
+  "author": "TheCatchBat",
+  "description": "A playable Ceremonial Beast character featuring Plow, Ringing, and card enchantments.",
+  "version": "v0.1.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    {
+      "id": "BaseLib",
+      "minVersion": "3.4.5"
+    }
+  ],
+  "affects_gameplay": true
+}

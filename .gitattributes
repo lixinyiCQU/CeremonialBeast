@@ -1,0 +1,14 @@
+# Normalize EOL for all files that Git considers text files.
+* text=auto eol=lf
+
+*.cs text diff=csharp
+*.csproj text
+*.json text
+*.md text
+*.props text
+*.sln text
+
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.pck binary

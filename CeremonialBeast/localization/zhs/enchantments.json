@@ -1,0 +1,10 @@
+﻿{
+  "CEREMONIALBEAST-BLESSING_ENCHANTMENT.title": "赐福",
+  "CEREMONIALBEAST-BLESSING_ENCHANTMENT.description": "耗能变为 [blue]0[/blue]。打出时，获得[gold]Ringing[/gold]。",
+  "CEREMONIALBEAST-INSPIRE_ENCHANTMENT.title": "启迪",
+  "CEREMONIALBEAST-INSPIRE_ENCHANTMENT.description": "每场战斗第一次打出这张牌时，抽 [blue]1[/blue] 张牌并获得 {energyPrefix:energyIcons(1)}。",
+  "CEREMONIALBEAST-CULTIVATE_ENCHANTMENT.title": "耕耘",
+  "CEREMONIALBEAST-CULTIVATE_ENCHANTMENT.description": "打出时，获得 [blue]2[/blue] 层[gold]Plow[/gold]。",
+  "CEREMONIALBEAST-ACCUMULATE_ENCHANTMENT.title": "积蓄",
+  "CEREMONIALBEAST-ACCUMULATE_ENCHANTMENT.description": "每场战斗第一次打出这张牌时，获得 [blue]1[/blue] 层[gold]Plow[/gold]。"
+}

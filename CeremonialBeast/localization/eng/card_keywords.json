@@ -1,0 +1,8 @@
+{
+  "CEREMONIALBEAST-PLOW.title": "Plow",
+  "CEREMONIALBEAST-PLOW.description": "At the start of your turn, gain 1 [strength]Strength[/strength] and lose 1 [agility]Agility[/agility] per stack. Taking unblocked damage removes 1 stack.",
+  "CEREMONIALBEAST-RINGING.title": "Ringing",
+  "CEREMONIALBEAST-RINGING.description": "You cannot play cards. Removed at the end of your turn.",
+  "CEREMONIALBEAST-BLESSING.title": "Blessing",
+  "CEREMONIALBEAST-BLESSING.description": "Cost becomes 0. Apply [purple]Ringing[/purple] when played."
+}

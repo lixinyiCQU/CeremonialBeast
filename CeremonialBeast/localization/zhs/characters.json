@@ -1,0 +1,16 @@
+﻿{
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.title": "仪式兽",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.titleObject": "仪式兽",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.description": "一头由古老仪式驱使的神秘巨兽。",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounObject": "它",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.possessiveAdjective": "它的",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounPossessive": "它的",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounSubject": "它",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.goldMonologue": "更多祭品……",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.eventDeathPrevention": "仪式仍在维系我。",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.aromaPrinciple": "焚香的气息。",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.cardsModifierTitle": "兽之印记",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.cardsModifierDescription": "被仪式兽影响。",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.banter.alive.endTurnPing": "*低沉咆哮*",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.banter.dead.endTurnPing": "……"
+}

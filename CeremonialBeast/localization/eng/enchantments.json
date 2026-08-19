@@ -1,0 +1,10 @@
+﻿{
+  "CEREMONIALBEAST-BLESSING_ENCHANTMENT.title": "Blessing",
+  "CEREMONIALBEAST-BLESSING_ENCHANTMENT.description": "Costs [blue]0[/blue]. When played, gain [gold]Ringing[/gold].",
+  "CEREMONIALBEAST-INSPIRE_ENCHANTMENT.title": "Inspire",
+  "CEREMONIALBEAST-INSPIRE_ENCHANTMENT.description": "The first time you play this card each combat, draw [blue]1[/blue] card and gain {energyPrefix:energyIcons(1)}.",
+  "CEREMONIALBEAST-CULTIVATE_ENCHANTMENT.title": "Cultivate",
+  "CEREMONIALBEAST-CULTIVATE_ENCHANTMENT.description": "When played, gain [blue]2[/blue] [gold]Plow[/gold].",
+  "CEREMONIALBEAST-ACCUMULATE_ENCHANTMENT.title": "Accumulate",
+  "CEREMONIALBEAST-ACCUMULATE_ENCHANTMENT.description": "The first time you play this card each combat, gain [blue]1[/blue] [gold]Plow[/gold]."
+}

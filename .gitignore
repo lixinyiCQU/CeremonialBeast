@@ -1,0 +1,37 @@
+# Godot-generated state
+.godot/
+.mono/
+/android/
+
+# .NET build output
+**/bin/
+**/obj/
+publish/
+artifacts/
+dist/
+packages/
+*.dll
+*.pdb
+*.pck
+*.deps.json
+*.runtimeconfig.json
+*.lscache
+
+# Local paths and IDE state
+Directory.Build.props
+local.props
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.DotSettings*
+
+# Local development tools and agent state
+.tools/
+.agents/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini

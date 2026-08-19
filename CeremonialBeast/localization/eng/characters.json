@@ -1,0 +1,16 @@
+{
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.title": "Ceremonial Beast",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.titleObject": "The Ceremonial Beast",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.description": "A mysterious beast driven by ancient rituals.",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounObject": "it",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.possessiveAdjective": "its",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounPossessive": "its",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.pronounSubject": "it",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.goldMonologue": "More offerings...",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.eventDeathPrevention": "The ritual sustains me.",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.aromaPrinciple": "The scent of incense.",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.cardsModifierTitle": "Beast's Mark",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.cardsModifierDescription": "Modified by the Ceremonial Beast.",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.banter.alive.endTurnPing": "*Low growl*",
+  "CEREMONIALBEAST-CEREMONIAL_BEAST.banter.dead.endTurnPing": "..."
+}

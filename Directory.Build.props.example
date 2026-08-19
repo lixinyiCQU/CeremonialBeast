@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <!-- MegaDot/Godot 4.5.1 executable used to export CeremonialBeast.pck. -->
+        <GodotPath>C:\Path\To\MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+
+        <!-- Usually auto-detected. Uncomment when the game is in a custom Steam library. -->
+        <!-- <Sts2Path>C:\Path\To\Steam\steamapps\common\Slay the Spire 2</Sts2Path> -->
+    </PropertyGroup>
+</Project>
