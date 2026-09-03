@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class SacrificialSurgePower : CustomPowerModel
+public sealed class SacrificialSurgePower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

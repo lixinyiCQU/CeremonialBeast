@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class BlessedHarvestPower : CustomPowerModel
+public class BlessedHarvestPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

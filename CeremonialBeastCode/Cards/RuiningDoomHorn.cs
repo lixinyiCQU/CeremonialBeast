@@ -5,6 +5,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -18,22 +20,52 @@ public sealed class RuiningDoomHornTotalDamageVar : DynamicVar
 
     public override void UpdateCardPreview(CardModel card, CardPreviewMode previewMode, Creature? target, bool runGlobalHooks)
     {
-        int x = card.EnergyCost.CapturedXValue;
-        if (x <= 0)
+        if (target == null || card.CombatState == null)
         {
-            x = card.Owner?.PlayerCombatState?.Energy ?? 0;
+            PreviewValue = 0m;
+            return;
         }
 
-        decimal multiplier = card.DynamicVars["Factor"].BaseValue * x;
-        decimal strength = card.Owner?.Creature.GetPowerAmount<StrengthPower>() ?? 0m;
-        base.BaseValue = Math.Max(0m, multiplier + strength * multiplier);
+        int x = Hook.ModifyXValue(card.CombatState, card, card.EnergyCost.GetAmountToSpend());
+        decimal adjustedBaseDamage = CalculateAdjustedBaseDamage(card, x);
 
-        base.UpdateCardPreview(card, previewMode, target, runGlobalHooks);
+        PreviewValue = Math.Max(0m, Hook.ModifyDamage(
+            card.Owner.RunState,
+            card.CombatState,
+            target,
+            card.Owner.Creature,
+            adjustedBaseDamage,
+            ValueProp.Move,
+            card,
+            null,
+            ModifyDamageHookType.All,
+            previewMode,
+            out IEnumerable<AbstractModel> _));
+    }
+
+    public static decimal CalculateAdjustedBaseDamage(CardModel card, int x)
+    {
+        if (x <= 0)
+        {
+            return 0m;
+        }
+
+        decimal hitCount = card.DynamicVars["Factor"].BaseValue * x;
+        decimal strength = card.Owner.Creature.GetPowerAmount<StrengthPower>();
+
+        // The normal damage hook adds Strength once. Pre-add the remaining copies
+        // so Strength contributes once for every point of Factor * X damage.
+        return Math.Max(0m, hitCount + strength * (hitCount - 1m));
     }
 }
 
 public sealed class RuiningDoomHorn : CeremonialBeastCard
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>()
+    ];
+
     private const string FactorKey = "Factor";
 
     protected override bool HasEnergyCostX => true;
@@ -60,10 +92,7 @@ public sealed class RuiningDoomHorn : CeremonialBeastCard
             return;
         }
 
-        decimal factor = base.DynamicVars[FactorKey].BaseValue;
-        decimal multiplier = factor * x;
-        decimal strength = base.Owner.Creature.GetPowerAmount<StrengthPower>();
-        decimal finalBaseDamage = Math.Max(0m, multiplier + strength * (multiplier - 1m));
+        decimal finalBaseDamage = RuiningDoomHornTotalDamageVar.CalculateAdjustedBaseDamage(this, x);
 
         await DamageCmd.Attack(finalBaseDamage)
             .FromCard(this, cardPlay)

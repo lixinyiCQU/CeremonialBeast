@@ -16,7 +16,11 @@ public class FinalCeremony() : CeremonialBeastCard(2, CardType.Skill, CardRarity
 
     protected override HashSet<CardTag> CanonicalTags => [CustomTags.Ringing];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlowPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<PlowPower>(),
+        HoverTipFactory.FromPower<RingingPower>()
+    ];
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {

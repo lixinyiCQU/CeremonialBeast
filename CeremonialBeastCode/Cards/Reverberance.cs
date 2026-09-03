@@ -4,6 +4,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using CeremonialBeast.CeremonialBeastCode.Powers;
@@ -12,8 +13,13 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class Reverberance() : CeremonialBeastCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    // 1. 定义伤害变量：基础 12 点
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12m, ValueProp.Move)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<RingingPower>()
+    ];
+
+    // 1. 定义伤害变量：基础 14 点
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14m, ValueProp.Move)];
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -29,7 +35,7 @@ public class Reverberance() : CeremonialBeastCard(2, CardType.Attack, CardRarity
 
     protected override void OnUpgrade()
     {
-        // 伤害提升 4 点 (12 -> 16)
-        DynamicVars.Damage.UpgradeValueBy(4m);
+        // 伤害提升 6 点 (14 -> 20)
+        DynamicVars.Damage.UpgradeValueBy(6m);
     }
 }

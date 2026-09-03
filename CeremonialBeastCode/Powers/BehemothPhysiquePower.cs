@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class BehemothPhysiquePower : CustomPowerModel
+public class BehemothPhysiquePower : CeremonialBeastPower
 {
     public static readonly SpireField<Creature, decimal> StoredReduction = new(() => 0m);
 

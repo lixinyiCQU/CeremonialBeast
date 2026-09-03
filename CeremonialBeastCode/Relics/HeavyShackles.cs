@@ -50,7 +50,6 @@ public class HeavyShackles : CeremonialBeastRelic
 
     private static bool CanEnchant(CardModel card)
     {
-        return card.Enchantment == null
-            && card.Rarity is CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Token;
+        return ModelDb.Enchantment<InspireEnchantment>().CanEnchant(card);
     }
 }

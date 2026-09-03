@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class ToughRootsActivePower : CustomPowerModel
+public sealed class ToughRootsActivePower : CeremonialBeastPower
 {
     private decimal _energyAmount;
 

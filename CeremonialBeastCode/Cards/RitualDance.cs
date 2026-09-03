@@ -22,7 +22,7 @@ public sealed class RitualDance : CeremonialBeastCard
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
         new BlockVar(7m, ValueProp.Move),
-        new DynamicVar(_extraBlock, 7m)
+        new BlockVar(_extraBlock, 7m, ValueProp.Move)
     };
 
     public RitualDance()
@@ -64,7 +64,7 @@ public sealed class RitualDance : CeremonialBeastCard
         if (IsFirstCardPlayThisTurn)
         {
             // 利用当前 DynamicVar 的数值，临时构造一个 BlockVar 传递给指令
-            BlockVar extraBlock = new BlockVar(base.DynamicVars[_extraBlock].BaseValue, ValueProp.Move);
+            BlockVar extraBlock = (BlockVar)base.DynamicVars[_extraBlock];
             await CreatureCmd.GainBlock(base.Owner.Creature, extraBlock, cardPlay);
         }
     }

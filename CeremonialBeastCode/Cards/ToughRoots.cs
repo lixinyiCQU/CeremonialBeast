@@ -14,8 +14,7 @@ public sealed class ToughRoots : CeremonialBeastCard
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<RingingPower>(),
-        HoverTipFactory.FromPower<ToughRootsPower>()
+        HoverTipFactory.FromPower<RingingPower>()
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];

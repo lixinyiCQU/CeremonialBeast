@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -19,6 +20,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 // 💡 优化 1：添加 sealed 关键字
 public sealed class CeremonialPlowing() : CeremonialBeastCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<PlowPower>()
+    ];
+
     // 1. 定义变量：获得 2 层 Plow
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlowPower>(3)];
 
@@ -45,8 +51,7 @@ public sealed class CeremonialPlowing() : CeremonialBeastCard(0, CardType.Skill,
 
     protected override void OnUpgrade()
     {
-        // 升级后 Plow 层数提升至 3 (+1)
-        base.DynamicVars[nameof(PlowPower)].UpgradeValueBy(1m);
+        DynamicVars[nameof(PlowPower)].UpgradeValueBy(1m);
     }
 
     // ==========================================

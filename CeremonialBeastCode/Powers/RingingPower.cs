@@ -32,6 +32,11 @@ public class RingingPower : CustomPowerModel
             return true;
         }
 
+        if (base.Owner.HasPower<ProfaneRitualPower>())
+        {
+            return true;
+        }
+
         if (card is CeremonialBeastCard)
         {
             return true;

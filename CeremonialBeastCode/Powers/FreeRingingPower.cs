@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
 // 修复 CS1729：移除构造函数的参数，直接继承 CustomPowerModel
-public class FreeRingingPower : CustomPowerModel
+public class FreeRingingPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

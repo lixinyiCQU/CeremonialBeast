@@ -180,13 +180,6 @@ public class PlowPower : CustomPowerModel
                 return; 
             }
 
-            bool isProtected = base.Owner.HasPower<ToughRootsActivePower>();
-
-            if (isProtected)
-            {
-                return; 
-            }
-
             await PowerCmd.Apply<PlowPower>(base.Owner, -1m, base.Owner, null);
         }
     }

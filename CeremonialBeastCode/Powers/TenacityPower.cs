@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps; // 引入枚举命名空间
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class TenacityPower : CustomPowerModel
+public class TenacityPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

@@ -16,7 +16,7 @@ public sealed class SharedFurrow() : CeremonialBeastCard(1, CardType.Skill, Card
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlowPower>()];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlowPower>(2m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlowPower>(3m)];
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {

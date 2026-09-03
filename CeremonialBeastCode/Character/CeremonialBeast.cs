@@ -29,7 +29,7 @@ public class CeremonialBeast : PlaceholderCharacterModel
     public override CharacterGender Gender => CharacterGender.Neutral;
     
     // 初始属性配置
-    public override int StartingHp => 80;
+    public override int StartingHp => 86;
     public override int StartingGold => 99;
     
     // 初始卡组配置
@@ -55,6 +55,13 @@ public class CeremonialBeast : PlaceholderCharacterModel
     public override CardPoolModel CardPool => ModelDb.CardPool<CeremonialBeastCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<CeremonialBeastRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<CeremonialBeastPotionPool>();
+
+    public override List<string> GetArchitectAttackVfx() =>
+    [
+        "vfx/vfx_attack_blunt",
+        "vfx/vfx_heavy_blunt",
+        "vfx/vfx_rock_shatter"
+    ];
     
     // ==========================================
     // UI 与选人界面资产映射
@@ -70,8 +77,8 @@ public class CeremonialBeast : PlaceholderCharacterModel
     }
     
     public override string CustomIconTexturePath => "ceremonial_beast_boss.png".CharacterUiPath();
-    public override string CustomCharacterSelectIconPath => "ceremonial_beast_boss.png".CharacterUiPath();
-    public override string CustomCharacterSelectLockedIconPath => "ceremonial_beast_boss.png".CharacterUiPath();
+    public override string CustomCharacterSelectIconPath => "res://CeremonialBeast/images/charui/ceremonial_beast_select.png";
+    public override string CustomCharacterSelectLockedIconPath => "res://CeremonialBeast/images/charui/ceremonial_beast_select.png";
     public override string CustomMapMarkerPath => "ceremonial_beast_boss.png".CharacterUiPath();
     public override string CustomCharacterSelectBg => "res://CeremonialBeast/images/charui/ceremonial_beast_select_bg.tscn";
     
@@ -81,6 +88,18 @@ public class CeremonialBeast : PlaceholderCharacterModel
         if (visuals == null)
         {
             return null;
+        }
+
+        if (visuals.FindChild("FormVfx", recursive: true, owned: false) == null)
+        {
+            Control formVfxHolder = new()
+            {
+                Name = "FormVfx",
+                UniqueNameInOwner = true,
+                MouseFilter = Control.MouseFilterEnum.Ignore
+            };
+            visuals.AddChild(formVfxHolder);
+            formVfxHolder.Owner = visuals;
         }
 
         var visualsNode = visuals.GetNodeOrNull<Node2D>("Visuals");

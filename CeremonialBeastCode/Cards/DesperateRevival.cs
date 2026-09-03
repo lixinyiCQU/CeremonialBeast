@@ -45,7 +45,8 @@ public sealed class DesperateRevival : CeremonialBeastCard
             }
             
             // 采用你提供的半血判定逻辑
-            return (decimal)base.Owner.Creature.CurrentHp < (decimal)base.Owner.Creature.MaxHp / 2m;
+            return base.IsPlayable
+                && (decimal)base.Owner.Creature.CurrentHp <= (decimal)base.Owner.Creature.MaxHp / 2m;
         }
     }
 

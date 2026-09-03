@@ -20,7 +20,7 @@ public class HarvestPlowVar : DynamicVar
 
     public override void UpdateCardPreview(CardModel card, CardPreviewMode previewMode, Creature? target, bool runGlobalHooks)
     {
-        if (card.Owner != null)
+        if (card.Owner != null && card.CombatState != null)
         {
             // 获取当前手牌的真实数量
             int handSize = PileType.Hand.GetPile(card.Owner).Cards.Count;
@@ -34,6 +34,10 @@ public class HarvestPlowVar : DynamicVar
             
             // 直接更新底层 BaseValue
             base.BaseValue = handSize;
+        }
+        else
+        {
+            base.BaseValue = 1m;
         }
         
         base.UpdateCardPreview(card, previewMode, target, runGlobalHooks);
@@ -62,9 +66,14 @@ public sealed class Harvest : CeremonialBeastCard
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // ✨ 既然动态变量在渲染管线里已经帮我们把数值算得明明白白了，
-        // 打出时直接读取它即可！既统一了逻辑，又保证了文本与实际效果绝对一致。
-        decimal amount = base.DynamicVars["PlowAmount"].BaseValue;
+        int handSize = PileType.Hand.GetPile(base.Owner).Cards.Count;
+        if (base.Pile?.Type != PileType.Hand)
+        {
+            handSize++;
+        }
+
+        decimal amount = handSize;
+        base.DynamicVars["PlowAmount"].BaseValue = amount;
 
         if (amount > 0)
         {

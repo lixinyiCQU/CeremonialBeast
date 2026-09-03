@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
@@ -14,7 +13,7 @@ public sealed class Stamp : CeremonialBeastCard
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard(ModelDb.Card<Rampage>())
+        HoverTipFactory.FromCard<Rampage>(base.IsUpgraded)
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -23,7 +22,7 @@ public sealed class Stamp : CeremonialBeastCard
     ];
 
     public Stamp()
-        : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
     {
     }
 
@@ -31,7 +30,7 @@ public sealed class Stamp : CeremonialBeastCard
     {
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .Targeting(cardPlay.Target!)
+            .TargetingAllOpponents(base.CombatState!)
             .Execute(choiceContext);
 
         await Rampage.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
@@ -18,14 +19,15 @@ public sealed class SavageMajesty : CeremonialBeastCard
     protected override IEnumerable<IHoverTip> ExtraHoverTips => new IHoverTip[]
     {
         HoverTipFactory.FromPower<WeakPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>()
+        HoverTipFactory.FromPower<VulnerablePower>(),
+        HoverTipFactory.FromPower<CeremonialBeast.CeremonialBeastCode.Powers.RingingPower>()
     };
 
     // 注册三个动态变量：伤害(18)、虚弱(2)、易伤(3)
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
         new DamageVar(20m, ValueProp.Move),
-        new PowerVar<WeakPower>(3m),
+        new PowerVar<WeakPower>(2m),
         new PowerVar<VulnerablePower>(3m)
     };
 
@@ -63,12 +65,6 @@ public sealed class SavageMajesty : CeremonialBeastCard
 
     protected override void OnUpgrade()
     {
-        // 升级后数值全面提升：
-        // 伤害 +6 (18 -> 24)
-        base.DynamicVars.Damage.UpgradeValueBy(7m);
-        // 虚弱 +1 (2 -> 3)
-        base.DynamicVars["WeakPower"].UpgradeValueBy(1m);
-        // 易伤 +1 (3 -> 4)
-        base.DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(7m);
     }
 }

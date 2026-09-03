@@ -13,7 +13,7 @@ namespace CeremonialBeast.CeremonialBeastCode.Powers;
 // ==========================================
 // 升级前的状态：下 N 张牌减 1 费
 // ==========================================
-public sealed class CeremonialPrepPower : CustomPowerModel
+public sealed class CeremonialPrepPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -67,7 +67,7 @@ public sealed class CeremonialPrepPower : CustomPowerModel
 // ==========================================
 // 升级后的状态：下 N 张牌减 2 费
 // ==========================================
-public sealed class CeremonialPrepUpgradedPower : CustomPowerModel
+public sealed class CeremonialPrepUpgradedPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

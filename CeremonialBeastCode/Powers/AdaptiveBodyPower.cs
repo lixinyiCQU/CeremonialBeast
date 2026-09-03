@@ -4,7 +4,7 @@ using BaseLib.Abstracts;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class AdaptiveBodyPower : CustomPowerModel
+public sealed class AdaptiveBodyPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

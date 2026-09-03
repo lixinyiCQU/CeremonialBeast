@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using CeremonialBeast.CeremonialBeastCode.Powers;
 // 确保引入了自定义标签所在的命名空间
 // using CeremonialBeast.CeremonialBeastCode.Enums; 
 
@@ -20,7 +21,8 @@ public sealed class BestialPresence : CeremonialBeastCard
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<WeakPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>()
+        HoverTipFactory.FromPower<VulnerablePower>(),
+        HoverTipFactory.FromPower<CeremonialBeast.CeremonialBeastCode.Powers.RingingPower>()
     ];
 
     // 使用官方的 PowerVar 规范声明初始层数

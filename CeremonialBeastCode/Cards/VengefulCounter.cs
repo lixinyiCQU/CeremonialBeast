@@ -17,7 +17,7 @@ public sealed class VengefulCounter : CeremonialBeastCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(14m, ValueProp.Move)
+        new DamageVar(17m, ValueProp.Move)
     ];
 
     public VengefulCounter()
@@ -65,8 +65,7 @@ public sealed class VengefulCounter : CeremonialBeastCard
 
         if (tookDamageLastTurn)
         {
-            // 将本回合的费用减 2（即降至 0 费）
-            base.EnergyCost.AddThisTurn(-2);
+            base.EnergyCost.SetThisTurn(0);
         }
     }
 

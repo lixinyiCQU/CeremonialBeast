@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class DanceOfDeathPower : CustomPowerModel
+public class DanceOfDeathPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

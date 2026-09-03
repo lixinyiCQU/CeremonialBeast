@@ -43,8 +43,8 @@
     "CEREMONIALBEAST-RAIN_DANCE_POWER.description":  "At the start of your next turn, gain temporary [gold]Strength[/gold] and temporary [gold]Dexterity[/gold].",
     "CEREMONIALBEAST-RAIN_DANCE_POWER.smartDescription":  "At the start of your next turn, gain [blue]{Amount}[/blue] temporary [gold]Strength[/gold] and [blue]{Amount}[/blue] temporary [gold]Dexterity[/gold].",
     "CEREMONIALBEAST-FATAL_LOCK_POWER.title":  "Fatal Lock",
-    "CEREMONIALBEAST-FATAL_LOCK_POWER.description":  "Your next Attack deals increased damage.",
-    "CEREMONIALBEAST-FATAL_LOCK_POWER.smartDescription":  "Your next Attack deals increased damage.",
+    "CEREMONIALBEAST-FATAL_LOCK_POWER.description":  "Your next Attack deals additional damage.",
+    "CEREMONIALBEAST-FATAL_LOCK_POWER.smartDescription":  "Your next Attack deals [blue]{Amount}%[/blue] additional damage.",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.title":  "Ceremonial Prep",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.description":  "The next cards you play cost 1 less.",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.smartDescription":  "The next [blue]{Amount}[/blue] cards you play cost [blue]1[/blue] less.",
@@ -70,8 +70,8 @@
     "CEREMONIALBEAST-PAIN_RESONANCE_POWER.description":  "Whenever you lose HP, deal damage to ALL enemies.",
     "CEREMONIALBEAST-PAIN_RESONANCE_POWER.smartDescription":  "Whenever you lose HP, deal [blue]{Amount}[/blue] damage to ALL enemies.",
     "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.title":  "Adaptive Body",
-    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.description":  "You no longer lose temporary [gold]Dexterity[/gold] from [gold]Plow[/gold].",
-    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.smartDescription":  "You no longer lose temporary [gold]Dexterity[/gold] from [gold]Plow[/gold].",
+    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.description":  "You no longer lose temporary [gold]Dexterity[/gold] or [gold]Strength[/gold] from [gold]Plow[/gold].",
+    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.smartDescription":  "You no longer lose temporary [gold]Dexterity[/gold] or [gold]Strength[/gold] from [gold]Plow[/gold].",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.title":  "Behemoth Physique",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.description":  "Whenever you lose HP, reduce the HP lost.",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.smartDescription":  "Whenever you lose HP, reduce the HP lost by [blue]{RealReduction}[/blue].",
@@ -119,5 +119,8 @@
     "CEREMONIALBEAST-GIGANTIFICATION_POWER.smartDescription":  "Your current HP and Max HP have been doubled for this combat. The bonus Max HP is removed after combat.",
     "CEREMONIALBEAST-RITUAL_RELAY_POWER.title":  "Ritual Relay",
     "CEREMONIALBEAST-RITUAL_RELAY_POWER.description":  "Your next card is played additional times. Then gain [gold]Ringing[/gold].",
-    "CEREMONIALBEAST-RITUAL_RELAY_POWER.smartDescription":  "Your next card is played [blue]{Amount}[/blue] additional times. Then gain [gold]Ringing[/gold]."
+    "CEREMONIALBEAST-RITUAL_RELAY_POWER.smartDescription":  "Your next card is played [blue]{Amount}[/blue] additional times. Then gain [gold]Ringing[/gold].",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.title":  "Escalating Frenzy",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.description":  "After the next card you play this turn, enter [gold]Ringing[/gold].",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.smartDescription":  "After the next [blue]{Amount}[/blue] cards you play this turn, enter [gold]Ringing[/gold]."
 }

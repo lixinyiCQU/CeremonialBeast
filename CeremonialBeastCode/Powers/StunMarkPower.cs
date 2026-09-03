@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class StunMarkPower : CustomPowerModel
+public class StunMarkPower : CeremonialBeastPower
 {
     // 定位为负面状态 (Debuff)
     public override PowerType Type => PowerType.Debuff;

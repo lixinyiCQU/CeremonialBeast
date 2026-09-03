@@ -12,9 +12,6 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class AncientBlessing : CeremonialBeastCard
 {
-    // 架构接入：声明为 Dynamic 行为，确保无视鸣响封印
-    public override RingingBehavior RingingInteractBehavior => RingingBehavior.Dynamic;
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromEnchantment<BlessingEnchantment>();
 
     public AncientBlessing()

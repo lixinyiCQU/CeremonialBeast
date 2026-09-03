@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class EnchantedDeterrencePower : CustomPowerModel
+public class EnchantedDeterrencePower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

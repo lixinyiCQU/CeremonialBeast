@@ -1,33 +1,46 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class TailSwingPower : CustomPowerModel
+public class TailSwingPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // 核心逻辑 1：每当打出攻击牌，给目标上易伤
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (cardPlay.Card.Type == CardType.Attack && cardPlay.Target != null)
+        if (command.Attacker != base.Owner || command.ModelSource is not CardModel { Type: CardType.Attack })
         {
-            // 施加原版的 VulnerablePower
+            return;
+        }
+
+        Creature[] targets = command.Results
+            .SelectMany(results => results)
+            .Select(result => result.Receiver)
+            .Where(target => target.Side != base.Owner.Side)
+            .Distinct()
+            .ToArray();
+
+        if (targets.Length > 0)
+        {
+            Flash();
             await PowerCmd.Apply<VulnerablePower>(
-                cardPlay.Target, 
-                base.Amount, 
-                base.Owner, 
-                null
-            );
+                targets,
+                base.Amount,
+                base.Owner,
+                null);
         }
     }
 

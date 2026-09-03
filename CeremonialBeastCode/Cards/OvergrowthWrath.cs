@@ -52,7 +52,6 @@ public class OvergrowthWrath() : CeremonialBeastCard(2, CardType.Attack, CardRar
 
     protected override void OnUpgrade()
     {
-        // 升级后伤害提升 3 点 (7 -> 10)
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(5m);
     }
 }

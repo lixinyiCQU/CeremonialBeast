@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
@@ -19,8 +20,13 @@ public sealed class Quietude : CeremonialBeastCard
     // 或者直接悬停展示状态图标，不过这里逻辑直观，留空或加特定提示皆可
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [];
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new PowerVar<QuietudePower>(3m)
+    ];
+
     public Quietude()
-        : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+        : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
@@ -30,12 +36,15 @@ public sealed class Quietude : CeremonialBeastCard
 
         // 为玩家施加一个只持续到本回合结束的“宁静之息”监听状态
         // 传递的数值为 3m，代表每剩余 1 费回复 3 点生命
-        await PowerCmd.Apply<QuietudePower>(base.Owner.Creature, 3m, base.Owner.Creature, this);
+        await PowerCmd.Apply<QuietudePower>(
+            base.Owner.Creature,
+            base.DynamicVars[nameof(QuietudePower)].BaseValue,
+            base.Owner.Creature,
+            this);
     }
 
     protected override void OnUpgrade()
     {
-        // 升级后费用从 1 降低至 0
-        EnergyCost.UpgradeBy(-1);
+        base.DynamicVars[nameof(QuietudePower)].UpgradeValueBy(1m);
     }
 }

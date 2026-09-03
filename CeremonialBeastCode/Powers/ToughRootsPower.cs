@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class ToughRootsPower : CustomPowerModel
+public sealed class ToughRootsPower : CeremonialBeastPower
 {
     private decimal _energyNextTurn;
 

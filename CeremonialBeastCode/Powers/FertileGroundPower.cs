@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class FertileGroundPower : CustomPowerModel
+public sealed class FertileGroundPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

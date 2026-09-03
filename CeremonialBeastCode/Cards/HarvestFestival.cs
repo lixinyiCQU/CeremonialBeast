@@ -11,6 +11,8 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class HarvestFestival : CeremonialBeastCard
 {
+    public override RingingBehavior RingingInteractBehavior => RingingBehavior.Blocked;
+
     // 1. 声明为 X 费卡牌
     protected override bool HasEnergyCostX => true;
 

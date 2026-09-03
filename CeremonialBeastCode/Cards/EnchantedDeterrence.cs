@@ -4,13 +4,20 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class EnchantedDeterrence : CeremonialBeastCard
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>()
+    ];
+
     // ==========================================
     // ✨ 注册能力变量：基础 1 层
     // ==========================================

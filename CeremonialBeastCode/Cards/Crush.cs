@@ -4,6 +4,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using CeremonialBeast.CeremonialBeastCode.Powers; // 确保引入 PlowPower
@@ -12,6 +13,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class Crush() : CeremonialBeastCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) // 使用 AnyEnemy 指代单体敌人
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<PlowPower>()
+    ];
+
     // 1. 定义动态变量：基础伤害 8，Plow层数 1
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
@@ -41,7 +47,7 @@ public class Crush() : CeremonialBeastCard(1, CardType.Attack, CardRarity.Common
     protected override void OnUpgrade()
     {
         // 伤害提升 1 (8 -> 9)
-        DynamicVars.Damage.UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
         
         // Plow 层数提升 1 (1 -> 2)
         DynamicVars[nameof(PlowPower)].UpgradeValueBy(1m);

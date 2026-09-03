@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models; // ⬅️ 修复：引入了 CardModel 所在�
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class CeremonialTerritorialPower : CustomPowerModel
+public class CeremonialTerritorialPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

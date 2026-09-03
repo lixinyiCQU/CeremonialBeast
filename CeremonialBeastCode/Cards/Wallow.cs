@@ -27,7 +27,7 @@ public sealed class Wallow : CeremonialBeastCard
     // 💡 调整 3：将 BlockVar 替换为 PowerVar<PlatingPower>
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<RegenPower>(2m),
+        new PowerVar<RegenPower>(1m),
         new PowerVar<PlatingPower>(2m)
     ];
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -12,6 +13,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class EndurePain : CeremonialBeastCard
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<CeremonialBeast.CeremonialBeastCode.Powers.PlowPower>()
+    ];
+
     private const string _plowKey = "PlowAmount";
 
     // 告诉底层这会产生格挡（用于意图显示等）

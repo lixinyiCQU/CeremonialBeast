@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
@@ -15,7 +14,7 @@ public sealed class CeremonialForm : CeremonialBeastCard
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<RingingPower>(),
-        HoverTipFactory.FromCard(ModelDb.Card<Rampage>())
+        HoverTipFactory.FromCard<Rampage>(base.IsUpgraded)
     ];
 
     public CeremonialForm()

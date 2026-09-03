@@ -20,9 +20,6 @@ public sealed class CeremonialHarvest : CeremonialBeastCard
 {
     public override bool CanBeGeneratedInCombat => false;
 
-    // 无视 Ringing 封印，可自由打出
-    public override RingingBehavior RingingInteractBehavior => RingingBehavior.Dynamic;
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     // 基础 12 点伤害
@@ -100,6 +97,6 @@ public sealed class CeremonialHarvest : CeremonialBeastCard
     protected override void OnUpgrade()
     {
         // 升级后伤害提升
-        base.DynamicVars.Damage.UpgradeValueBy(3m);
+        base.DynamicVars.Damage.UpgradeValueBy(4m);
     }
 }

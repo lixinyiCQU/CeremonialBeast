@@ -43,8 +43,8 @@
     "CEREMONIALBEAST-RAIN_DANCE_POWER.description":  "在你的下个回合开始时，获得临时[gold]力量[/gold]和临时[gold]敏捷[/gold]。",
     "CEREMONIALBEAST-RAIN_DANCE_POWER.smartDescription":  "在你的下个回合开始时，获得 [blue]{Amount}[/blue] 点临时[gold]力量[/gold]和 [blue]{Amount}[/blue] 点临时[gold]敏捷[/gold]。",
     "CEREMONIALBEAST-FATAL_LOCK_POWER.title":  "致命锁定",
-    "CEREMONIALBEAST-FATAL_LOCK_POWER.description":  "你的下一张攻击牌造成的伤害提升。",
-    "CEREMONIALBEAST-FATAL_LOCK_POWER.smartDescription":  "你的下一张攻击牌造成的伤害提升。",
+    "CEREMONIALBEAST-FATAL_LOCK_POWER.description":  "你的下一张攻击牌造成额外伤害。",
+    "CEREMONIALBEAST-FATAL_LOCK_POWER.smartDescription":  "你的下一张攻击牌造成 [blue]{Amount}%[/blue] 额外伤害。",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.title":  "仪式准备",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.description":  "接下来打出的牌耗能减少 1。",
     "CEREMONIALBEAST-CEREMONIAL_PREP_POWER.smartDescription":  "接下来打出的 [blue]{Amount}[/blue] 张牌耗能减少 [blue]1[/blue]。",
@@ -69,9 +69,9 @@
     "CEREMONIALBEAST-PAIN_RESONANCE_POWER.title":  "痛苦共鸣",
     "CEREMONIALBEAST-PAIN_RESONANCE_POWER.description":  "每当你失去生命时，对所有敌人造成伤害。",
     "CEREMONIALBEAST-PAIN_RESONANCE_POWER.smartDescription":  "每当你失去生命时，对所有敌人造成 [blue]{Amount}[/blue] 点伤害。",
-    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.title":  "适应身体",
-    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.description":  "你不再因[gold]Plow[/gold]失去临时[gold]敏捷[/gold]。",
-    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.smartDescription":  "你不再因[gold]Plow[/gold]失去临时[gold]敏捷[/gold]。",
+    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.title":  "适应躯体",
+    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.description":  "你不再会因[gold]Plow[/gold]失去临时[gold]敏捷[/gold]或[gold]力量[/gold]。",
+    "CEREMONIALBEAST-ADAPTIVE_BODY_POWER.smartDescription":  "你不再会因[gold]Plow[/gold]失去临时[gold]敏捷[/gold]或[gold]力量[/gold]。",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.title":  "巨兽体质",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.description":  "每当你失去生命时，减少失去的生命。",
     "CEREMONIALBEAST-BEHEMOTH_PHYSIQUE_POWER.smartDescription":  "每当你失去生命时，减少 [blue]{RealReduction}[/blue] 点失去的生命。",
@@ -119,5 +119,8 @@
     "CEREMONIALBEAST-GIGANTIFICATION_POWER.smartDescription":  "本场战斗中，你的当前生命值和最大生命值已翻倍。战斗结束后移除增加的最大生命值。",
     "CEREMONIALBEAST-RITUAL_RELAY_POWER.title":  "仪式递延",
     "CEREMONIALBEAST-RITUAL_RELAY_POWER.description":  "你的下一张牌会额外打出数次，随后获得[gold]Ringing[/gold]。",
-    "CEREMONIALBEAST-RITUAL_RELAY_POWER.smartDescription":  "你的下一张牌会额外打出 [blue]{Amount}[/blue] 次，随后获得[gold]Ringing[/gold]。"
+    "CEREMONIALBEAST-RITUAL_RELAY_POWER.smartDescription":  "你的下一张牌会额外打出 [blue]{Amount}[/blue] 次，随后获得[gold]Ringing[/gold]。",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.title":  "渐进狂热",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.description":  "本回合你打出的下一张牌后，进入[gold]Ringing[/gold]。",
+    "CEREMONIALBEAST-ESCALATING_FRENZY_POWER.smartDescription":  "本回合你打出接下来的 [blue]{Amount}[/blue] 张牌后，进入[gold]Ringing[/gold]。"
 }

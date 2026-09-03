@@ -7,7 +7,7 @@ using BaseLib.Hooks; // 可能需要引入以识别 Creature
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
 // 核心改造：在继承 CustomPowerModel 的同时，实现 IHealAmountModifier 接口
-public class SoulOfWhiteStagPower : CustomPowerModel, IHealAmountModifier
+public class SoulOfWhiteStagPower : CeremonialBeastPower, IHealAmountModifier
 {
     public override PowerType Type => PowerType.Buff;
     

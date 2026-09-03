@@ -14,6 +14,7 @@ public sealed class Deterrence : CeremonialBeastCard
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
+        HoverTipFactory.Static(StaticHoverTip.Block),
         HoverTipFactory.FromPower<StrengthPower>()
     ];
 

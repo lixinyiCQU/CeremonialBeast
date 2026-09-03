@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class TillerShieldPower : CustomPowerModel
+public sealed class TillerShieldPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

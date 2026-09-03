@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class GigantificationPower : CustomPowerModel
+public class GigantificationPower : CeremonialBeastPower
 {
     public static readonly SpireField<Creature, decimal> BonusHpTracker = new(() => 0m);
 

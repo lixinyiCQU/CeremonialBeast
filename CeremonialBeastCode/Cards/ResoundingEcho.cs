@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 
@@ -11,6 +12,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class ResoundingEcho : CeremonialBeastCard
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<RingingPower>()
+    ];
+
     // ==========================================
     // ✨ 注册能力变量：基础 8 层（即 8 点伤害）
     // ==========================================

@@ -55,7 +55,7 @@ public sealed class Rampage : CeremonialBeastCard
         var targets = base.CombatState!.HittableEnemies;
 
         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(
-            NHorizontalLinesVfx.Create(new Color("BFFFC880"), 1.2000000476837158, movingRightwards: false));
+            NHorizontalLinesVfx.Create(new Color("BFFFC880"), 1.2000000476837158, movingRightwards: true));
 
         await Cmd.Wait(0.5f);
 
@@ -94,9 +94,9 @@ public sealed class Rampage : CeremonialBeastCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(5m);
-        base.DynamicVars["PlowPower"].UpgradeValueBy(1m);
-        base.DynamicVars["PlatingPower"].UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(5m);
+        DynamicVars["PlowPower"].UpgradeValueBy(1m);
+        DynamicVars[nameof(PlatingPower)].UpgradeValueBy(1m);
     }
 
     public static async Task<CardModel?> CreateInHand(Player owner, ICombatState combatState, bool upgraded = false)

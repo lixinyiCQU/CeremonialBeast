@@ -13,13 +13,16 @@ using MegaCrit.Sts2.Core.Combat;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class RainDancePower : CustomPowerModel
+public sealed class RainDancePower : CeremonialBeastPower
 {
     // 修复 CS0534: 显式声明这是一个正面增益 (Buff)
     public override PowerType Type => PowerType.Buff;
 
     // 正常显示层数（即 3 或 4）
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    // Each copy needs an independent activation and cleanup turn.
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     // 状态机标记：记录是否已经给过属性了，防止逻辑死锁或跨回合白嫖
     private bool _hasTriggered = false;

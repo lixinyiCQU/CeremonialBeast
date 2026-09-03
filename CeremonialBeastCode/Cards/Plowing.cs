@@ -62,14 +62,12 @@ public class Plowing() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Basic
 
     protected override void OnUpgrade()
     {
-        // ✨ 升级后选择的卡牌数量增加 1 张
-        DynamicVars.Cards.UpgradeValueBy(1m);
+        EnergyCost.UpgradeBy(-1);
     }
 
     private bool CanEnchant(CardModel card)
     {
         return card != this
-            && card.Enchantment == null
-            && card.Rarity is CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Token;
+            && ModelDb.Enchantment<CultivateEnchantment>().CanEnchant(card);
     }
 }

@@ -4,14 +4,21 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class BeastInstinct() : CeremonialBeastCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<RingingPower>()
+    ];
+
     // 声明变量：基础 22 点伤害
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(22m, ValueProp.Move)

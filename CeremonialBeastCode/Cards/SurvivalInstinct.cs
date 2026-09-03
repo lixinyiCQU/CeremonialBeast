@@ -23,10 +23,10 @@ public class SurvivalInstinctBlockVar : BlockVar
         // ✨ 修复 1：直接读取并保存底层真实的 base.BaseValue
         decimal originalBase = base.BaseValue;
         
-        // 如果满足条件，将底层基础值暂时提升 6 点
+        // 半血时翻倍基础格挡；升级后自然从 12 提升到 16。
         if (c.IsHpBelowHalf)
         {
-            base.BaseValue += 6m;
+            base.BaseValue += originalBase;
         }
         
         // 调用底层逻辑，引擎会用修改后的 BaseValue 算出带有敏捷/虚弱影响的最终结果
@@ -56,7 +56,7 @@ public class SurvivalInstinct() : CeremonialBeastCard(1, CardType.Skill, CardRar
         
         if (IsHpBelowHalf)
         {
-            finalBaseBlock += 6m;
+            finalBaseBlock *= 2m;
         }
 
         // 动态生成一个包含最终数值的 BlockVar 传给底层。
@@ -66,6 +66,6 @@ public class SurvivalInstinct() : CeremonialBeastCard(1, CardType.Skill, CardRar
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3m);
+        DynamicVars.Block.UpgradeValueBy(2m);
     }
 }

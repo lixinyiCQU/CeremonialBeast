@@ -30,6 +30,10 @@ local.props
 # Local development tools and agent state
 .tools/
 .agents/
+.debug/
+
+# Local card-art staging area (final assets live in card_portraits/big)
+/CeremonialBeast/images/new_card_portraits/
 
 # Operating-system files
 .DS_Store

@@ -19,9 +19,9 @@ public sealed class BlessedHarvest : CeremonialBeastCard
         new PowerVar<BlessedHarvestPower>(1m)
     };
 
-    // 初始费用 2 费
+    // 初始费用 1 费
     public BlessedHarvest()
-        : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+        : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 

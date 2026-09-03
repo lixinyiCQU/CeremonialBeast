@@ -3,12 +3,19 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class EscalatingFrenzy : CeremonialBeastCard
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<RingingPower>()
+    ];
+
     // 注册抽牌变量，初始值为 2
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
@@ -16,7 +23,7 @@ public sealed class EscalatingFrenzy : CeremonialBeastCard
     };
 
     public EscalatingFrenzy()
-        : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+        : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
@@ -30,13 +37,16 @@ public sealed class EscalatingFrenzy : CeremonialBeastCard
         {
             await CardPileCmd.Draw(choiceContext, drawCount, base.Owner);
         }
+    }
 
-        // 3. 核心成长机制：将本张卡牌的抽牌基础数值增加 1
-        // 在单场战斗中，这个修改会一直保留在该卡牌实例上
-        base.DynamicVars["Cards"].BaseValue += 1m;
-        
-        // 提示：如果希望 UI 上的数字立即产生视觉上的颜色跳变反馈，可以调用以下方法（可选）
-        // base.DynamicVars["Cards"].Flash(); 
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await base.AfterCardPlayedLate(choiceContext, cardPlay);
+
+        if (cardPlay.Card == this && cardPlay.Card.Owner == base.Owner)
+        {
+            await PowerCmd.Apply<EscalatingFrenzyPower>(base.Owner.Creature, 1m, base.Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()

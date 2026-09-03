@@ -16,8 +16,6 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public sealed class DarkRevelation : CeremonialBeastCard
 {
-    public override RingingBehavior RingingInteractBehavior => RingingBehavior.Dynamic;
-
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
         // 绑定特定状态的层数变量

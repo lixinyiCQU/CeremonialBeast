@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class AncientBlessingPower : CustomPowerModel
+public sealed class AncientBlessingPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -51,7 +51,6 @@ public sealed class AncientBlessingPower : CustomPowerModel
 
     private static bool CanEnchant(CardModel card)
     {
-        return card.Enchantment == null
-            && card.Rarity is CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Token;
+        return ModelDb.Enchantment<BlessingEnchantment>().CanEnchant(card);
     }
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using CeremonialBeast.CeremonialBeastCode.Powers;
@@ -14,6 +15,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class Trample() : CeremonialBeastCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<PlowPower>()
+    ];
+
     // 1. 声明底层专用的动态计算变量组合 (完美复刻 BodySlam 的逻辑)
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [

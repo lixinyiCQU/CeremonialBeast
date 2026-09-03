@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class PainResonancePower : CustomPowerModel
+public sealed class PainResonancePower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

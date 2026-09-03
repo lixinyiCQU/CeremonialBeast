@@ -16,7 +16,8 @@ public sealed class TillerShield : CeremonialBeastCard
     // 注册 Plow 词条的悬停提示，方便玩家查看机制
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<PlowPower>()
+        HoverTipFactory.FromPower<PlowPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block)
     ];
 
     // 使用 PowerVar 规范，初始数值为 2

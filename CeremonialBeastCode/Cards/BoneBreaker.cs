@@ -4,6 +4,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers; // 必须引入以获取 StrengthPower
 using MegaCrit.Sts2.Core.ValueProps;
@@ -12,6 +13,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class BoneBreaker() : CeremonialBeastCard(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>()
+    ];
+
     // 1. 定义动态变量：伤害 4，力量减少量 1
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [

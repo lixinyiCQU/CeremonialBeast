@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using CeremonialBeast.CeremonialBeastCode.Enchantments;
+using CeremonialBeast.CeremonialBeastCode.Powers;
 using MegaCrit.Sts2.Core.CardSelection; // ✨ 必须引入附魔的命名空间
 // 确保引入 CustomTags 所在的命名空间
 // using CeremonialBeast.CeremonialBeastCode.Enums;
@@ -24,7 +25,8 @@ public sealed class RunicRevelation : CeremonialBeastCard
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        ..HoverTipFactory.FromEnchantment<InspireEnchantment>()
+        ..HoverTipFactory.FromEnchantment<InspireEnchantment>(),
+        HoverTipFactory.FromPower<RingingPower>()
     ];
 
     public RunicRevelation()
@@ -77,7 +79,6 @@ public sealed class RunicRevelation : CeremonialBeastCard
     private bool CanEnchant(CardModel card)
     {
         return card != this
-            && card.Enchantment == null
-            && card.Rarity is CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Token;
+            && ModelDb.Enchantment<InspireEnchantment>().CanEnchant(card);
     }
 }

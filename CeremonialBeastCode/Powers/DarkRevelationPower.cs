@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class DarkRevelationPower : CustomPowerModel
+public sealed class DarkRevelationPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

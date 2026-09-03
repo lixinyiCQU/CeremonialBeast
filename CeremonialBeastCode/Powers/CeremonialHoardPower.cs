@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class CeremonialHoardPower : CustomPowerModel
+public class CeremonialHoardPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

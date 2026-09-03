@@ -4,6 +4,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 
@@ -11,6 +12,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class Tenacity() : CeremonialBeastCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.Static(StaticHoverTip.Block)
+    ];
+
     // 定义一个专属的动态变量来存储格挡值。
     // 我们不使用标准的 BlockVar，因为这张牌打出时并不直接提供格挡，而是传递给状态。
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("BlockValue", 5m)];

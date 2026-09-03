@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public class ResoundingEchoPower : CustomPowerModel
+public class ResoundingEchoPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

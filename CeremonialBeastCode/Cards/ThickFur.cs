@@ -46,8 +46,7 @@ public class ThickFur() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Comm
 
     protected override void OnUpgrade()
     {
-        // 升级后格挡提升至 10 (+3)。Plow层数不升级，所以只处理 Block 变量
+        // 升级后格挡提升至 11；Plow 层数不变。
         DynamicVars.Block.UpgradeValueBy(3m);
-        DynamicVars[nameof(PlowPower)].UpgradeValueBy(1m);
     }
 }

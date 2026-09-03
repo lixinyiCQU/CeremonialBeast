@@ -18,10 +18,10 @@ public sealed class BeastCry : CeremonialBeastCard
         HoverTipFactory.FromPower<StunMarkPower>()
     ];
 
-    // 注册伤害(10) 和 昏眩层数(1) 两个动态变量
+    // 注册伤害(12) 和 昏眩层数(1) 两个动态变量
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(10m, ValueProp.Move),
+        new DamageVar(12m, ValueProp.Move),
         new PowerVar<StunMarkPower>(1m)
     ];
 
@@ -44,7 +44,7 @@ public sealed class BeastCry : CeremonialBeastCard
 
     protected override void OnUpgrade()
     {
-        // 升级后伤害提升 3 点 (10 -> 13)
-        base.DynamicVars.Damage.UpgradeValueBy(3m);
+        // 升级后伤害提升 4 点 (12 -> 16)
+        base.DynamicVars.Damage.UpgradeValueBy(4m);
     }
 }

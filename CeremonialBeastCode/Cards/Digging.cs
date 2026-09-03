@@ -15,8 +15,8 @@ public class Digging() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Commo
     // 1. 定义动态变量：抽 1 张牌，获得 2 层 Plow
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new CardsVar(1),
-        new PowerVar<PlowPower>(2m)
+        new CardsVar(2),
+        new PowerVar<PlowPower>(1m)
     ];
 
     // 2. 注册悬停提示：当玩家鼠标悬停时，弹出 Plow 状态的说明
@@ -42,7 +42,6 @@ public class Digging() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Commo
 
     protected override void OnUpgrade()
     {
-        // 升级后抽牌数量提升至 2 (+1)
-        DynamicVars.Cards.UpgradeValueBy(1m);
+        DynamicVars[nameof(PlowPower)].UpgradeValueBy(1m);
     }
 }

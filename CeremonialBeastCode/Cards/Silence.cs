@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
@@ -18,7 +17,7 @@ public sealed class Silence : CeremonialBeastCard
     // 💡 新增：注册悬停提示，展示衍生牌《NOPE》的原型预览
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard(ModelDb.Card<Nope>())
+        HoverTipFactory.FromCard<Nope>(base.IsUpgraded)
     ];
 
     // 使用 BlockVar 注册格挡，初始为 8
@@ -44,7 +43,7 @@ public sealed class Silence : CeremonialBeastCard
 
     protected override void OnUpgrade()
     {
-        // 升级后格挡提升 3 点 (8 -> 11)
-        base.DynamicVars.Block.UpgradeValueBy(3m);
+        // 升级后格挡提升 1 点 (8 -> 9)
+        base.DynamicVars.Block.UpgradeValueBy(1m);
     }
 }

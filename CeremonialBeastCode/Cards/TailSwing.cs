@@ -4,6 +4,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using CeremonialBeast.CeremonialBeastCode.Powers;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -12,6 +13,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
 public class TailSwing() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<VulnerablePower>()
+    ];
+
     // 1. 定义变量：易伤层数 1
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VulnerablePower>(1)];
 

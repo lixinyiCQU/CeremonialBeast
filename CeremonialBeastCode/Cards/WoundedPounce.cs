@@ -12,7 +12,11 @@ namespace CeremonialBeast.CeremonialBeastCode.Cards;
 public class WoundedPounce() : CeremonialBeastCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     // 定义动态变量：基础伤害 6
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(6m, ValueProp.Move),
+        new RepeatVar(2)
+    ];
 
     protected override bool ShouldGlowGoldInternal => (decimal)Owner.Creature.CurrentHp <= (decimal)Owner.Creature.MaxHp / 2m;
 
@@ -26,7 +30,7 @@ public class WoundedPounce() : CeremonialBeastCard(1, CardType.Attack, CardRarit
             // 经典的半血检测（与我们的狂暴姿态和顽强生命保持一致）
             if ((decimal)Owner.Creature.CurrentHp <= (decimal)Owner.Creature.MaxHp / 2m)
             {
-                hitCount = 2; // 满足条件，攻击次数翻倍，等效于“再打出1次”
+                hitCount = DynamicVars.Repeat.IntValue;
             }
 
             // 执行攻击指令
@@ -40,7 +44,6 @@ public class WoundedPounce() : CeremonialBeastCard(1, CardType.Attack, CardRarit
 
     protected override void OnUpgrade()
     {
-        // 升级后伤害提升 2 (6 -> 8)
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Repeat.UpgradeValueBy(1m);
     }
 }
