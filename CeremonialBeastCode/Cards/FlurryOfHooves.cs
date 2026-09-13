@@ -16,7 +16,7 @@ public class FlurryOfHooves() : CeremonialBeastCard(2, CardType.Attack, CardRari
 
     // 定义两个动态变量：伤害值为 3，攻击次数(Repeat)为 3
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(3, ValueProp.Move),
+        new DamageVar(2, ValueProp.Move),
         new RepeatVar(3)
     ];
 

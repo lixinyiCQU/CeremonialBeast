@@ -17,7 +17,7 @@ public class Territorial() : CeremonialBeastCard(1, CardType.Power, CardRarity.U
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {
         // 施加专属的“领地意识”状态
-        await PowerCmd.Apply<CeremonialTerritorialPower>(
+        await PowerCmd.Apply<TerritorialPower>(
             Owner.Creature, 
             DynamicVars.Cards.BaseValue, 
             Owner.Creature, 

@@ -24,7 +24,7 @@ public class Trample() : CeremonialBeastCard(2, CardType.Attack, CardRarity.Unco
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         // 基础伤害 (Base): 6
-        new CalculationBaseVar(6m), 
+        new CalculationBaseVar(12m),
         
         // 额外伤害 (Extra/Bonus): 每层 Plow 造成 2 点
         new ExtraDamageVar(2m),     

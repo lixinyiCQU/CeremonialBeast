@@ -22,7 +22,7 @@ public sealed class ResoundingEcho : CeremonialBeastCard
     // ==========================================
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
-        new PowerVar<ResoundingEchoPower>(8m)
+        new PowerVar<ResoundingEchoPower>(7m)
     };
 
     public ResoundingEcho()

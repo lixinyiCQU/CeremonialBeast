@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class RitualRelayPower : CustomPowerModel
+public sealed class RitualRelayPower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
 

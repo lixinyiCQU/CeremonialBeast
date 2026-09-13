@@ -8,9 +8,8 @@ using CeremonialBeast.CeremonialBeastCode.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
-public class Gigantification() : CeremonialBeastCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Gigantification() : CeremonialBeastCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => base.IsUpgraded ? [CardKeyword.Innate] : [];
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -42,6 +41,6 @@ public class Gigantification() : CeremonialBeastCard(2, CardType.Power, CardRari
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        EnergyCost.UpgradeBy(-1);
     }
 }

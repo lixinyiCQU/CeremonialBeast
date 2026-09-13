@@ -19,7 +19,7 @@ public sealed class HarvestFestival : CeremonialBeastCard
     // 注册悬停提示：展示《仪式犁地》和下回合抽牌的状态说明
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard(ModelDb.Card<CeremonialPlowing>()), 
+        HoverTipFactory.FromCard(ModelDb.Card<SacrificialStone>()),
         HoverTipFactory.FromPower<HarvestFestivalPower>()
     ];
 
@@ -40,7 +40,7 @@ public sealed class HarvestFestival : CeremonialBeastCard
         {
             // ✨ 核心修复：使用官方 AddToCombatAndPreview 泛型方法
             // 它会自动完成：生成卡牌 -> 插入抽牌堆的随机位置（洗入） -> 播放生成动画 -> 刷新 UI 数量！
-            await CardPileCmd.AddToCombatAndPreview<CeremonialPlowing>(
+            await CardPileCmd.AddToCombatAndPreview<SacrificialStone>(
                 base.Owner.Creature, 
                 PileType.Draw, 
                 finalAmount, 

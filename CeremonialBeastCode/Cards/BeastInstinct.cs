@@ -16,12 +16,13 @@ public class BeastInstinct() : CeremonialBeastCard(0, CardType.Attack, CardRarit
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
+        HoverTipFactory.FromCard<Plow>(base.IsUpgraded),
         HoverTipFactory.FromPower<RingingPower>()
     ];
 
-    // 声明变量：基础 22 点伤害
+    // Base damage is upgraded from 2 to 3.
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(22m, ValueProp.Move)
+        new DamageVar(2m, ValueProp.Move)
     ];
 
     // 挂载鸣响标签
@@ -45,16 +46,16 @@ public class BeastInstinct() : CeremonialBeastCard(0, CardType.Attack, CardRarit
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        // 无论是玩家手动打出，还是 AutoPlay 自动打出，最终都会走到这里执行伤害
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, play)
-            .TargetingAllOpponents(base.CombatState!) // 群体攻击
+            .TargetingAllOpponents(base.CombatState!)
             .Execute(choiceContext);
+
+        await Plow.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);
     }
 
     protected override void OnUpgrade()
     {
-        // 升级后伤害提升 9 点 (22 -> 31)
-        DynamicVars.Damage.UpgradeValueBy(9m);
+        DynamicVars.Damage.UpgradeValueBy(1m);
     }
 }

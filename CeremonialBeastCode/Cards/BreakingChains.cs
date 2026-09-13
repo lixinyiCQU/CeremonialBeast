@@ -14,7 +14,7 @@ public sealed class BreakingChains : CeremonialBeastCard
     // 注册悬停提示：自动在侧边展示《NOPE》的卡牌预览
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard(ModelDb.Card<Nope>())
+        HoverTipFactory.FromCard(ModelDb.Card<Soberize>())
     ];
 
     public BreakingChains()

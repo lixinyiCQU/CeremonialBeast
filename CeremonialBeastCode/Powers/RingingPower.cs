@@ -32,7 +32,7 @@ public class RingingPower : CustomPowerModel
             return true;
         }
 
-        if (base.Owner.HasPower<ProfaneRitualPower>())
+        if (base.Owner.HasPower<SacrilegiousCeremonyPower>())
         {
             return true;
         }
@@ -65,10 +65,10 @@ public class RingingPower : CustomPowerModel
         var player = base.CombatState.Players.FirstOrDefault(p => p.Creature == base.Owner);
         if (player != null)
         {
-            var dagger = player.Relics.FirstOrDefault(r => r is CeremonialDagger) as CeremonialDagger;
-            if (dagger != null)
+            var bell = player.Relics.FirstOrDefault(r => r is RustedCopperBell) as RustedCopperBell;
+            if (bell != null)
             {
-                await dagger.TriggerDaggerEffect(null, base.CombatState);
+                await bell.TriggerBellEffect(null, base.CombatState);
             }
         }
     }

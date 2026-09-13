@@ -25,7 +25,7 @@ public sealed class DesperateRevival : CeremonialBeastCard
     // 使用 PowerVar 传递再生层数，初始为 5
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
-        new PowerVar<RegenPower>(6m)
+        new PowerVar<RegenPower>(5m)
     };
 
     public DesperateRevival()

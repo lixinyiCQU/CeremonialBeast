@@ -14,7 +14,7 @@ public sealed class CeremonialForm : CeremonialBeastCard
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<RingingPower>(),
-        HoverTipFactory.FromCard<Rampage>(base.IsUpgraded)
+        HoverTipFactory.FromCard<Plow>(base.IsUpgraded)
     ];
 
     public CeremonialForm()

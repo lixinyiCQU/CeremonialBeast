@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/Core/Nodes/RestSite/NRestSiteCharacter.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://CeremonialBeast/images/character_rooms/ceremonial_beast_rest_site.png" id="2_texture"]
+[ext_resource type="Script" path="res://src/Core/Nodes/Combat/NSelectionReticle.cs" id="3_reticle_script"]
+
+[node name="CeremonialBeastRestSite" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+position = Vector2(80, -180)
+texture = ExtResource("2_texture")
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+position = Vector2(45, 32)
+
+[node name="SelectionReticle" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -220.0
+offset_top = -664.0
+offset_right = 220.0
+offset_bottom = 40.0
+script = ExtResource("3_reticle_script")
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -220.0
+offset_top = -664.0
+offset_right = 220.0
+offset_bottom = 40.0
+mouse_filter = 0
+focus_mode = 2
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -664.0
+offset_right = 200.0
+offset_bottom = -664.0
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -200.0
+offset_top = -664.0
+offset_right = -200.0
+offset_bottom = -664.0

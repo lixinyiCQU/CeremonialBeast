@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
 
-public class FinalCeremony() : CeremonialBeastCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class FinalCeremony() : CeremonialBeastCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 

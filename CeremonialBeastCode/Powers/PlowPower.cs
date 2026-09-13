@@ -38,7 +38,7 @@ public class PlowPower : CustomPowerModel
             
             if (stacks > 0)
             {
-                var paleAntler = base.Owner.Player?.Relics.OfType<PaleAntler>().FirstOrDefault();
+                var paleAntler = base.Owner.Player?.Relics.OfType<PaleAntlers>().FirstOrDefault();
 
                 if (paleAntler != null)
                 {

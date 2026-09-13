@@ -16,7 +16,7 @@ public sealed class TillingStrike : CeremonialBeastCard
     // 注册悬停提示：展示《仪式犁地》的卡牌预览
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<CeremonialPlowing>()
+        HoverTipFactory.FromCard<SacrificialStone>()
     ];
 
     // 注册伤害变量，初始为 6
@@ -41,15 +41,13 @@ public sealed class TillingStrike : CeremonialBeastCard
         // 2. 生成《仪式犁地》并加入手牌
         // 💡 修复：第一参数需要传入 Player 类型，所以使用 base.Owner.Player
         // Tilling Strike+ still creates the unupgraded token.
-        await CeremonialPlowing.CreateInHand(base.Owner, base.CombatState!);
+        await SacrificialStone.CreateInHand(base.Owner, base.CombatState!);
 
-        // 3. 将自身放入抽牌堆
-        await CardPileCmd.Add(this, PileType.Draw, CardPilePosition.Random);
     }
 
     protected override void OnUpgrade()
     {
         // 升级后伤害提升 1 点 (6 -> 7)
-        base.DynamicVars.Damage.UpgradeValueBy(1m);
+        base.DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }

@@ -42,13 +42,13 @@ public class CeremonialBeast : PlaceholderCharacterModel
         ModelDb.Card<Defend>(),
         ModelDb.Card<Defend>(),
         ModelDb.Card<Defend>(),
-        ModelDb.Card<CeremonialStomp>(),
+        ModelDb.Card<Stomp>(),
         ModelDb.Card<Plowing>()
     ];
 
     // 初始遗物配置
     public override IReadOnlyList<RelicModel> StartingRelics => [
-        ModelDb.Relic<CeremonialSoil>()
+        ModelDb.Relic<CeremonialSpiritStone>()
     ];
     
     // 资源池绑定
@@ -81,6 +81,8 @@ public class CeremonialBeast : PlaceholderCharacterModel
     public override string CustomCharacterSelectLockedIconPath => "res://CeremonialBeast/images/charui/ceremonial_beast_select.png";
     public override string CustomMapMarkerPath => "ceremonial_beast_boss.png".CharacterUiPath();
     public override string CustomCharacterSelectBg => "res://CeremonialBeast/images/charui/ceremonial_beast_select_bg.tscn";
+    public override string CustomMerchantAnimPath => "res://CeremonialBeast/scenes/character/ceremonial_beast_merchant.tscn";
+    public override string CustomRestSiteAnimPath => "res://CeremonialBeast/scenes/character/ceremonial_beast_rest_site.tscn";
     
     public override NCreatureVisuals? CreateCustomVisuals()
     {
@@ -105,6 +107,10 @@ public class CeremonialBeast : PlaceholderCharacterModel
         var visualsNode = visuals.GetNodeOrNull<Node2D>("Visuals");
         if (visualsNode != null)
         {
+            visualsNode.SetMeta("ceremonial_beast_player", true);
+            var deathParticles = visuals.GetNodeOrNull<Node2D>("DeathParticles");
+            if (deathParticles != null)
+                visualsNode.SetMeta("player_death_transform", visualsNode.Transform.AffineInverse() * deathParticles.Transform);
             visualsNode.Scale = new Vector2(-0.45f, 0.45f);
         }
         else
@@ -119,6 +125,9 @@ public class CeremonialBeast : PlaceholderCharacterModel
         MegaCrit.Sts2.Core.Bindings.MegaSpine.MegaSprite controller,
         Creature creature)
     {
+        if (controller.BoundObject is Node2D body)
+            body.GetParent().AddChild(new BeastStatusVfx { Creature = creature });
+
         AnimState idleState = new AnimState("idle_loop", isLooping: true);
         AnimState castState = new AnimState("shrill");
         
@@ -155,6 +164,7 @@ public class CeremonialBeast : PlaceholderCharacterModel
         creatureAnimator.AddAnyState("Unstun", wakeUpState);
 
         creatureAnimator.AddAnyState("Plow", plowState);
+        creatureAnimator.AddAnyState("EndPlow", plowEndState);
         creatureAnimator.AddAnyState("PlowCharge", plowState);
         creatureAnimator.AddAnyState("PlowHit", hitState);
         creatureAnimator.AddAnyState("Dead", deadState);

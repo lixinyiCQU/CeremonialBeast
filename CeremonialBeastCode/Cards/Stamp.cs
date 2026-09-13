@@ -13,7 +13,7 @@ public sealed class Stamp : CeremonialBeastCard
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<Rampage>(base.IsUpgraded)
+        HoverTipFactory.FromCard<Plow>(base.IsUpgraded)
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -33,7 +33,7 @@ public sealed class Stamp : CeremonialBeastCard
             .TargetingAllOpponents(base.CombatState!)
             .Execute(choiceContext);
 
-        await Rampage.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);
+        await Plow.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);
     }
 
     protected override void OnUpgrade()

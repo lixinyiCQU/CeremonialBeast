@@ -33,7 +33,7 @@ public class Hoard() : CeremonialBeastCard(1, CardType.Attack, CardRarity.Common
                 .Execute(choiceContext);
 
             // 2. 挂载我们重写后的保留状态
-            await PowerCmd.Apply<CeremonialHoardPower>(
+            await PowerCmd.Apply<HoardRetainPower>(
                 Owner.Creature, 
                 DynamicVars["RetainAmount"].BaseValue, 
                 Owner.Creature, 

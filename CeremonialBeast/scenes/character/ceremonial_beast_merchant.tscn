@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/Core/Nodes/Screens/Shops/NMerchantCharacter.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://CeremonialBeast/images/character_rooms/ceremonial_beast_merchant.png" id="2_texture"]
+
+[node name="CeremonialBeastMerchant" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="SpineSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = -332.0
+offset_top = -664.0
+offset_right = 332.0
+offset_bottom = 0.0
+position = Vector2(-250, -550)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("2_texture")
+expand_mode = 1

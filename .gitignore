@@ -31,6 +31,9 @@ local.props
 .tools/
 .agents/
 .debug/
+/audit/
+/CeremonialBeast/modify/
+/CeremonialBeast/Ceremonial Beast card/
 
 # Local card-art staging area (final assets live in card_portraits/big)
 /CeremonialBeast/images/new_card_portraits/

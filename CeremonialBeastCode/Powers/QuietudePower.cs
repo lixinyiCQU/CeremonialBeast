@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CeremonialBeast.CeremonialBeastCode.Powers;
 
-public sealed class QuietudePower : CustomPowerModel
+public sealed class QuietudePower : CeremonialBeastPower
 {
     public override PowerType Type => PowerType.Buff;
     

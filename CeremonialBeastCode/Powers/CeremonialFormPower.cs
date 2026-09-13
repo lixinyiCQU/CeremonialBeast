@@ -29,8 +29,8 @@ public sealed class CeremonialFormPower : CeremonialBeastPower
             int upgradedCount = Math.Min(UpgradedStacks, (int)base.Amount);
             int normalCount = (int)base.Amount - upgradedCount;
 
-            await Rampage.CreateInHand(player, normalCount, combatState, false);
-            await Rampage.CreateInHand(player, upgradedCount, combatState, true);
+            await Plow.CreateInHand(player, normalCount, combatState, false);
+            await Plow.CreateInHand(player, upgradedCount, combatState, true);
         }
     }
 }

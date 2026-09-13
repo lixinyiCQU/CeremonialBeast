@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer; 
 using CeremonialBeast.CeremonialBeastCode.Powers;
 using Godot;
+using MegaCrit.Sts2.Core.Helpers;
 using BeastCharacter = CeremonialBeast.CeremonialBeastCode.Character.CeremonialBeast;
 
 namespace CeremonialBeast.CeremonialBeastCode.Cards;
@@ -26,8 +27,8 @@ public abstract class CeremonialBeastCard(int cost, CardType type, CardRarity ra
     CustomCardModel(cost, type, rarity, target)
 {
     public override string CustomPortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigCardImagePath();
-    public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-    public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+    public override string PortraitPath => CustomPortraitPath;
+    public override string BetaPortraitPath => CustomPortraitPath;
 
     public virtual RingingBehavior RingingInteractBehavior => RingingBehavior.Blocked;
 
@@ -45,7 +46,7 @@ public abstract class CeremonialBeastCard(int cost, CardType type, CardRarity ra
             }
 
             bool hasRinging = Owner.Creature.HasPower<RingingPower>();
-            bool hasProfaneRitual = Owner.Creature.HasPower<ProfaneRitualPower>(); 
+            bool hasSacrilegiousCeremony = Owner.Creature.HasPower<SacrilegiousCeremonyPower>();
 
             switch (RingingInteractBehavior)
             {
@@ -58,7 +59,7 @@ public abstract class CeremonialBeastCard(int cost, CardType type, CardRarity ra
 
                 case RingingBehavior.Blocked:
                 default:
-                    if (hasProfaneRitual) return basePlayable;
+                    if (hasSacrilegiousCeremony) return basePlayable;
                     return basePlayable && !hasRinging;
             }
         }
@@ -107,19 +108,21 @@ public abstract class CeremonialBeastCard(int cost, CardType type, CardRarity ra
 
         await OnPlayCard(choiceContext, cardPlay);
 
-        if (Owner?.Creature != null && entersRingingFromThisCard)
+        if (Owner?.Creature is { IsAlive: true } && entersRingingFromThisCard)
         {
             SfxCmd.Play(BeastCharacter.StunSfx);
             await CreatureCmd.TriggerAnim(Owner.Creature, "Stun", 0.6f);
         }
-        if (Owner?.Creature != null && alreadyInRinging)
+        if (Owner?.Creature is { IsAlive: true } && alreadyInRinging)
         {
             if (usePlowAnimation)
             {
-                await Cmd.Wait(0.2f);
+                await Cmd.Wait(0.2f, ignoreCombatEnd: true);
                 SfxCmd.Play(BeastCharacter.PlowEndSfx);
                 await CreatureCmd.TriggerAnim(Owner.Creature, "EndPlow", 0f);
-                await Cmd.Wait(0.65f);
+                var node = Owner.Creature.GetCreatureNode();
+                float duration = node?.SpineAnimation.GetCurrentAnimationDuration() ?? 0.65f;
+                await Cmd.Wait(duration, ignoreCombatEnd: true);
             }
             if (Owner.Creature.HasPower<RingingPower>())
             {

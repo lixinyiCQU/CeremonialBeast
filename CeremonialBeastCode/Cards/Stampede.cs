@@ -23,7 +23,7 @@ public class Stampede() : CeremonialBeastCard(3, CardType.Skill, CardRarity.Unco
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {
         // 挂载重命名后的临时状态
-        await PowerCmd.Apply<CeremonialStampedePower>(
+        await PowerCmd.Apply<StampedeDrawListenerPower>(
             Owner.Creature, 
             DynamicVars.Energy.BaseValue, 
             Owner.Creature, 
@@ -33,7 +33,7 @@ public class Stampede() : CeremonialBeastCard(3, CardType.Skill, CardRarity.Unco
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
 
         // 卸载重命名后的临时状态
-        var tempPower = Owner.Creature.GetPower<CeremonialStampedePower>();
+        var tempPower = Owner.Creature.GetPower<StampedeDrawListenerPower>();
         if (tempPower != null)
         {
             await PowerCmd.Remove(tempPower);

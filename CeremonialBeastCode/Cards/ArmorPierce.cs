@@ -16,8 +16,8 @@ public class ArmorPierce() : CeremonialBeastCard(1, CardType.Attack, CardRarity.
 {
     // 声明变量：9点伤害，2层易伤
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(9m, ValueProp.Move),
-        new PowerVar<VulnerablePower>(2m)
+        new DamageVar(8m, ValueProp.Move),
+        new PowerVar<VulnerablePower>(1m)
     ];
 
     // 悬停提示：展示“易伤”和“Plow”的官方解释黑框
@@ -66,7 +66,7 @@ public class ArmorPierce() : CeremonialBeastCard(1, CardType.Attack, CardRarity.
     protected override void OnUpgrade()
     {
         // 升级后伤害提升 3 (9 -> 12)
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
         // 升级后易伤层数提升 1 (2 -> 3)
         DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
     }

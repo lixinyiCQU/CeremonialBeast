@@ -11,7 +11,7 @@ internal static class ArchaicToothPatch
 {
     private static void Postfix(ref Dictionary<ModelId, CardModel> __result)
     {
-        CardModel stomp = ModelDb.Card<CeremonialStomp>();
+        CardModel stomp = ModelDb.Card<Stomp>();
         __result.TryAdd(stomp.Id, ModelDb.Card<SavageMajesty>());
     }
 }

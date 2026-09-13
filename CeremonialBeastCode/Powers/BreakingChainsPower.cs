@@ -25,6 +25,6 @@ public sealed class BreakingChainsPower : CeremonialBeastPower
         }
 
         Flash();
-        await Nope.CreateInHand(player, (int)base.Amount, combatState, false);
+        await Soberize.CreateInHand(player, (int)base.Amount, combatState, false);
     }
 }

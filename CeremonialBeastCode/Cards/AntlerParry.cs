@@ -22,7 +22,7 @@ public class AntlerParry() : CeremonialBeastCard(2, CardType.Skill, CardRarity.C
     protected override HashSet<CardTag> CanonicalTags => [CustomTags.Ringing];
 
     // 声明变量：基础 16 点格挡
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(16m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(15m, ValueProp.Move)];
 
     protected override async Task OnPlayCard(PlayerChoiceContext choiceContext, CardPlay play)
     {

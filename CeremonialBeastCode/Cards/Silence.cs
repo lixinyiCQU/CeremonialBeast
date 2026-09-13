@@ -17,7 +17,7 @@ public sealed class Silence : CeremonialBeastCard
     // 💡 新增：注册悬停提示，展示衍生牌《NOPE》的原型预览
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<Nope>(base.IsUpgraded)
+        HoverTipFactory.FromCard<Soberize>(base.IsUpgraded)
     ];
 
     // 使用 BlockVar 注册格挡，初始为 8
@@ -38,7 +38,7 @@ public sealed class Silence : CeremonialBeastCard
 
         // 2. ✨ 核心优化：调用工厂方法一键印卡！
         // 传入 base.IsUpgraded，这样如果《消音》升级了，发到手里的《NOPE》也会自动是升级版
-        await Nope.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);
+        await Soberize.CreateInHand(base.Owner, base.CombatState!, base.IsUpgraded);
     }
 
     protected override void OnUpgrade()

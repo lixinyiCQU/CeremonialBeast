@@ -12,7 +12,7 @@ internal static class YummyCookieIconPatch
     private const string OutlineFile = "yummy_cookie_ceremonial_beast_outline.png";
 
     private static bool IsCeremonialBeast(RelicModel relic) =>
-        relic is YummyCookie && relic.Owner?.Character is BeastCharacter;
+        relic is YummyCookie && !relic.IsCanonical && relic.Owner?.Character is BeastCharacter;
 
     [HarmonyPatch(typeof(RelicModel), nameof(RelicModel.PackedIconPath), MethodType.Getter)]
     private static class PackedIconPatch

@@ -87,6 +87,9 @@ dotnet publish CeremonialBeast.csproj -c Release
 
 The project copies build output to `<Slay the Spire 2>/mods/CeremonialBeast/`.
 
+For a clean GitHub Release ZIP, checksum, release gates, and tagging instructions, see [docs/RELEASING.md](docs/RELEASING.md). The player ZIP contains only the DLL, PCK, and mod manifest.
+
+
 ## Project structure
 
 | Path | Purpose |

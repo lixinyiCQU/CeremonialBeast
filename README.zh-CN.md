@@ -81,6 +81,8 @@ dotnet publish CeremonialBeast.csproj -c Release
 
 项目会将构建结果复制到 `<Slay the Spire 2>/mods/CeremonialBeast/`。
 
+生成干净的 GitHub Release 安装包、校验文件及版本标签的完整步骤见 [docs/RELEASING.md](docs/RELEASING.md)。玩家安装包只包含 DLL、PCK 和 Mod 清单。
+
 ## 项目结构
 
 | 路径 | 用途 |
